@@ -17,9 +17,7 @@ public class BusinessAccount extends CheckingAccount{
     }
 
     public void chargeFee(){
-        BigDecimal newBalance = balance.subtract(BigDecimal.valueOf(FEE));
-        AccountValidator.validateOverdraftLimit(newBalance,getOverdraftLimit());
-        balance = newBalance;
+        super.withdraw(FEE);
         log(TransactionType.FEE, FEE);
     }
 
