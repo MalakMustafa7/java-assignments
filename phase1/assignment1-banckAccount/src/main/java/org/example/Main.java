@@ -1,6 +1,6 @@
 package org.example;
 
-import org.example.model.Bank;
+import org.example.repository.Bank;
 import org.example.model.BusinessAccount;
 import org.example.model.CheckingAccount;
 import org.example.model.SavingsAccount;

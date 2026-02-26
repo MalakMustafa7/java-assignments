@@ -1,4 +1,6 @@
-package org.example.model;
+package org.example.repository;
+
+import org.example.model.BankAccount;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
