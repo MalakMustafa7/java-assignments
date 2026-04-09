@@ -3,6 +3,7 @@ package org.example.service.impl;
 import lombok.extern.slf4j.Slf4j;
 import org.example.Validation.ProductValidator;
 import org.example.exception.NotFoundException;
+import org.example.exception.OutOfStockException;
 import org.example.model.Product;
 import org.example.repository.ProductRepository;
 import org.example.service.ProductService;
@@ -41,5 +42,24 @@ public class ProductServiceImpl implements ProductService {
        Product product= getProductById(productId);
         productRepository.deleteById(productId);
         log.info("{} removed successfully",product.getName());
+    }
+
+    @Override
+    public void checkInStock(Long productId, int requiredQty) {
+        Product product = getProductById(productId);
+       if(product.getQuantity()<requiredQty){
+           throw new OutOfStockException(ErrorMessages.OUT_OF_STOCK);
+       }
+    }
+
+    @Override
+    public void decreaseQuantity(Long productId, int newQty) {
+        Product product = getProductById(productId);
+        if(product.getQuantity()<newQty){
+            throw new OutOfStockException(ErrorMessages.OUT_OF_STOCK);
+        }
+        int quantity = product.getQuantity()-newQty;
+        product.setQuantity(quantity);
+        productRepository.save(product);
     }
 }

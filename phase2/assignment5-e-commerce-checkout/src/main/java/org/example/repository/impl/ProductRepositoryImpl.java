@@ -18,7 +18,7 @@ public class ProductRepositoryImpl implements ProductRepository {
 
     @Override
     public List<Product> getAllProducts() {
-        return products.values().stream().collect(Collectors.toUnmodifiableList());
+        return products.values().stream().toList();
     }
 
     @Override

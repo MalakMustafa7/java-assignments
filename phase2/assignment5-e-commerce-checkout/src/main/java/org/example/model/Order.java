@@ -1,17 +1,21 @@
 package org.example.model;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.util.List;
 
-@Data
+@AllArgsConstructor
+@Getter
+@Setter
 public class Order {
-    private final Long orderId;
+    private  Long orderId;
     private  Long customerId;
     private List<CartItem>cartItems;
     private BigDecimal subtotal;
     private BigDecimal total;
-    private double tax;
+    private BigDecimal tax;
 
 }
