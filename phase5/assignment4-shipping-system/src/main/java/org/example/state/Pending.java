@@ -6,7 +6,7 @@ import org.example.exception.InvalidShipmentStateException;
 import org.example.service.Shipment;
 import org.example.utility.ErrorMessages;
 
-@Slf4j
+
 public class Pending implements State{
     @Override
     public void pack(Shipment shipment) {

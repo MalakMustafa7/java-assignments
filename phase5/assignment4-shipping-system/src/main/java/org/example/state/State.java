@@ -1,6 +1,4 @@
 package org.example.state;
-
-import org.example.model.PackageItem;
 import org.example.service.Shipment;
 
 public interface State {

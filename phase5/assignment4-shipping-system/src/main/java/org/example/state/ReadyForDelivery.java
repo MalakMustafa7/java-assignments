@@ -7,8 +7,7 @@ import org.example.model.PackageItem;
 import org.example.service.Shipment;
 import org.example.utility.ErrorMessages;
 
-@AllArgsConstructor
-@Slf4j
+
 public class ReadyForDelivery implements State {
     @Override
     public void pack(Shipment shipment) {
