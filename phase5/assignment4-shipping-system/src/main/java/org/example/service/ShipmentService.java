@@ -5,7 +5,7 @@ import org.example.strategy.delivery.Delivery;
 import org.example.strategy.packaging.PackagingStrategy;
 import org.example.factory.DeliveryFactory;
 import org.example.factory.PackagingFactory;
-import org.example.model.DeliveryType;
+import org.example.enums.DeliveryType;
 import org.example.model.PackageItem;
 
 @AllArgsConstructor
@@ -16,6 +16,8 @@ public class ShipmentService {
       PackagingStrategy packagingStrategy = packagingFactory.getPackagingStrategy(item);
       Delivery delivery = deliveryFactory.getDelivery(type);
       Shipment shipment = new Shipment(item,packagingStrategy,delivery);
-      shipment.process();
+      shipment.pack();
+      shipment.ship();
+      shipment.deliver();
     }
 }

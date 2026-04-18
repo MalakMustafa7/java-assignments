@@ -2,9 +2,10 @@ package org.example;
 
 import org.example.factory.DeliveryFactory;
 import org.example.factory.PackagingFactory;
-import org.example.model.DeliveryType;
+import org.example.enums.DeliveryType;
 import org.example.model.PackageItem;
 import org.example.service.ShipmentService;
+import org.example.utility.ErrorMessages;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,6 +17,7 @@ public class Main {
 
         service.ship(item1, DeliveryType.EXPRESS);
         service.ship(item2,DeliveryType.NORMAL);
+
 
     }
 }

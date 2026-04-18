@@ -3,7 +3,7 @@ package org.example.factory;
 import org.example.strategy.delivery.Delivery;
 import org.example.strategy.delivery.ExpressDelivery;
 import org.example.strategy.delivery.NormalDelivery;
-import org.example.model.DeliveryType;
+import org.example.enums.DeliveryType;
 import org.example.utility.ErrorMessages;
 
 public class DeliveryFactory {

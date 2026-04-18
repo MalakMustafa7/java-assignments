@@ -1,6 +1,14 @@
 package org.example.utility;
 
 public class ErrorMessages {
-    public static String UNKNOWN_TYPE=
+    public static final String UNKNOWN_TYPE=
             "Unknown delivery type: ";
+    public static final String CANNOT_PACK =
+            "Cannot pack shipment in current state";
+
+    public static final String CANNOT_SHIP =
+            "Cannot ship shipment in current state";
+
+    public static final String CANNOT_DELIVER =
+            "Cannot deliver shipment in current state";
 }
