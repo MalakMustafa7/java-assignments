@@ -9,20 +9,14 @@ import org.example.utility.ErrorMessages;
 
 
 public class ReadyForDelivery implements State {
-    @Override
-    public void pack(Shipment shipment) {
-        throw new InvalidShipmentStateException(ErrorMessages.CANNOT_PACK);
-    }
 
     @Override
-    public void ship(Shipment shipment) {
-        shipment.applyDelivery();
+    public void next(Shipment shipment) {
         shipment.setState(States.OUT_FOR_DELIVERY);
-
     }
 
     @Override
-    public void deliver(Shipment shipment) {
-        throw new InvalidShipmentStateException(ErrorMessages.CANNOT_DELIVER);
+    public String name() {
+        return "ReadyForDelivery";
     }
 }

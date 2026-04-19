@@ -12,12 +12,16 @@ import org.example.model.PackageItem;
 public class ShipmentService {
     private PackagingFactory packagingFactory;
     private DeliveryFactory deliveryFactory;
-    public void ship(PackageItem item, DeliveryType type){
-      PackagingStrategy packagingStrategy = packagingFactory.getPackagingStrategy(item);
-      Delivery delivery = deliveryFactory.getDelivery(type);
-      Shipment shipment = new Shipment(item,packagingStrategy,delivery);
-      shipment.pack();
-      shipment.ship();
-      shipment.deliver();
+
+    public Shipment ship(PackageItem item, DeliveryType type){
+      Shipment shipment = create(item,type);
+      shipment.process();
+      return shipment;
+    }
+
+    private Shipment create(PackageItem item, DeliveryType type) {
+        PackagingStrategy packaging = packagingFactory.getPackagingStrategy(item);
+        Delivery delivery = deliveryFactory.getDelivery(type);
+        return new Shipment(item, packaging, delivery);
     }
 }

@@ -7,19 +7,12 @@ import org.example.utility.ErrorMessages;
 
 public class OutForDelivery implements State{
     @Override
-    public void pack(Shipment shipment) {
-        throw new InvalidShipmentStateException(ErrorMessages.CANNOT_PACK);
-
-    }
-
-    @Override
-    public void ship(Shipment shipment) {
-        throw new InvalidShipmentStateException(ErrorMessages.CANNOT_SHIP);
-
-    }
-
-    @Override
-    public void deliver(Shipment shipment) {
+    public void next(Shipment shipment) {
         shipment.setState(States.DELIVERED);
+    }
+
+    @Override
+    public String name() {
+        return "OutForDelivery";
     }
 }

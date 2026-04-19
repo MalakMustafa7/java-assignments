@@ -6,18 +6,12 @@ import org.example.utility.ErrorMessages;
 
 public class Delivered implements State{
     @Override
-    public void pack(Shipment shipment) {
-        throw new InvalidShipmentStateException(ErrorMessages.CANNOT_PACK);
+    public void next(Shipment shipment) {
+        throw new InvalidShipmentStateException(ErrorMessages.ALREADY_DELIVERED);
     }
 
     @Override
-    public void ship(Shipment shipment) {
-        throw new InvalidShipmentStateException(ErrorMessages.CANNOT_SHIP);
-
-    }
-
-    @Override
-    public void deliver(Shipment shipment) {
-        throw new InvalidShipmentStateException(ErrorMessages.CANNOT_DELIVER);
+    public String name() {
+        return "Delivered";
     }
 }

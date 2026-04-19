@@ -9,6 +9,6 @@ public class ErrorMessages {
     public static final String CANNOT_SHIP =
             "Cannot ship shipment in current state";
 
-    public static final String CANNOT_DELIVER =
-            "Cannot deliver shipment in current state";
+    public static final String ALREADY_DELIVERED =
+            "Shipment already delivered.";
 }
