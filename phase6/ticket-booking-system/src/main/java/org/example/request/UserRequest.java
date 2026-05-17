@@ -1,4 +1,4 @@
-package org.example;
+package org.example.request;
 
 public interface UserRequest extends Runnable{
 }

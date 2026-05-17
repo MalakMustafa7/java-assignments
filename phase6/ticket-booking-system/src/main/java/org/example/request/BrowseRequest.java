@@ -1,5 +1,8 @@
-package org.example;
-public class BrowseRequest implements UserRequest{
+package org.example.request;
+
+import org.example.core.TicketSystem;
+
+public class BrowseRequest implements UserRequest {
     private final TicketSystem ticketSystem;
     private  String userName;
 

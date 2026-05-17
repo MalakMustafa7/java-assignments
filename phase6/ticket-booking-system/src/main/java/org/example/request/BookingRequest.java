@@ -1,6 +1,8 @@
-package org.example;
+package org.example.request;
 
-public class BookingRequest implements UserRequest{
+import org.example.core.TicketSystem;
+
+public class BookingRequest implements UserRequest {
     private final TicketSystem ticketSystem;
     private  String userName;
 
