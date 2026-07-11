@@ -1,19 +1,16 @@
 package org.example.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.*;
 
-import lombok.NoArgsConstructor;
 import org.example.enums.Status;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Getter
+@Setter
 public class Order {
-   private  String orderId;
+   private final  String orderId;
    private String customerId;
    private List<OrderItem>orderItems;
    private Status orderStatus;

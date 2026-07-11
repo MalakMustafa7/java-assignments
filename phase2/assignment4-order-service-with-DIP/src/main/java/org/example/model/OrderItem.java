@@ -10,7 +10,8 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 
-@Data
+@Getter
+@Setter
 public class OrderItem {
     private final String id;
     private int quantity;

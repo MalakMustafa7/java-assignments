@@ -18,6 +18,11 @@ public class Bank {
                 .filter(bankAccount -> bankAccount.getOwnerName().equalsIgnoreCase(ownerName))
                 .toList();
     }
+    public List<BankAccount> findByOwnerMuatable(String ownerName) {
+        return accounts.stream()
+                .filter(bankAccount -> bankAccount.getOwnerName().equalsIgnoreCase(ownerName))
+                .toList();
+    }
     public void totalAssetsReport(){
         BigDecimal total =BigDecimal.ZERO;
         for (BankAccount account : accounts) {
