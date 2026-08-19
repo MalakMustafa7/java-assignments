@@ -20,7 +20,7 @@ public class CustomerService {
     private final CustomerMapper customerMapper;
 
 
-    public CustomerResponse CreateCustomer(CustomerRequest request){
+    public CustomerResponse createCustomer(CustomerRequest request){
         Customer customer = customerMapper.toEntity(request);
        Customer saved= customerRepository.save(customer);
         return customerMapper.toResponse(saved);

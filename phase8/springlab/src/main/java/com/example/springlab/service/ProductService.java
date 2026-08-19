@@ -29,7 +29,7 @@ public class ProductService {
 
 
     @Transactional
-    public ProductResponse CreateProduct(ProductRequest request){
+    public ProductResponse createProduct(ProductRequest request){
         Product product = productMapper.toEntity(request);
         Category category = categoryRepository.findById(request.categoryId())
                 .orElseThrow(() -> new ResourceNotFoundException(

@@ -7,13 +7,13 @@ import jakarta.validation.constraints.NotNull;
 import java.util.List;
 
 public record OrderRequest(
-        @NotBlank()
+        @NotBlank(message = "{order.name.required}")
         String name,
 
-        @NotNull()
+        @NotNull(message = "{order.customerId.required}")
         Long customerId,
 
-        @NotEmpty()
+        @NotEmpty(message = "{order.items.required}")
         List<OrderItemRequest> orderItems
 ) {
 }

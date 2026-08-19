@@ -6,7 +6,6 @@ import com.example.springlab.domain.dto.ProductResponse;
 import com.example.springlab.service.ProductService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,12 +29,12 @@ public class ProductController {
     @PostMapping()
     public ResponseEntity<ProductResponse> createProduct(@Valid @RequestBody ProductRequest request){
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(productService.CreateProduct(request));
+                .body(productService.createProduct(request));
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<ProductResponse> updateProduct(@PathVariable Long id,
-                                                         @RequestBody ProductRequest request){
+                                                        @Valid @RequestBody ProductRequest request){
         return ResponseEntity.ok().body(productService.updateProduct(id,request));
 
     }

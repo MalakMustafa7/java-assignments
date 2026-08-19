@@ -8,14 +8,16 @@ import jakarta.validation.constraints.PositiveOrZero;
 import java.math.BigDecimal;
 
 public record ProductRequest(
-        @NotBlank()
-         String name,
-         @PositiveOrZero()
-         int stock,
-        @NotNull()
-        @Positive()
+        @NotBlank(message = "{product.name.required}")
+        String name,
+
+        @PositiveOrZero(message = "{product.stock.positive}")
+        int stock,
+
+        @NotNull(message = "{product.price.required}")
+        @Positive(message = "{product.price.positive}")
         BigDecimal price,
 
-        @NotNull()
-         Long categoryId
+        @NotNull(message = "{product.category.required}")
+        Long categoryId
 ) { }

@@ -18,7 +18,7 @@ public class CustomerController {
     @PostMapping
     public ResponseEntity<CustomerResponse> createCustomer(@Valid @RequestBody CustomerRequest request){
        return ResponseEntity.status(HttpStatus.CREATED)
-               .body(customerService.CreateCustomer(request));
+               .body(customerService.createCustomer(request));
     }
 
     @GetMapping("/{id}")
