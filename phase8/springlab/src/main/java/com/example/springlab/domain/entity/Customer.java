@@ -1,4 +1,4 @@
-package org.example.model;
+package com.example.springlab.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -13,16 +14,11 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Category {
+public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @OneToMany(mappedBy = "category")// inverse side
-    private List<Product> products;
+    private BigDecimal balance;
 
-    public void addProduct(Product product) {
-        products.add(product);
-        product.setCategory(this);
-    }
 }

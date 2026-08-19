@@ -1,4 +1,4 @@
-package org.example.model;
+package com.example.springlab.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,10 +20,6 @@ public class Category {
     private Long id;
     private String name;
     @OneToMany(mappedBy = "category")// inverse side
-    private List<Product> products;
+    private List<Product> products = new ArrayList<>();
 
-    public void addProduct(Product product) {
-        products.add(product);
-        product.setCategory(this);
-    }
 }
