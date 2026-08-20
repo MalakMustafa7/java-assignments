@@ -1,6 +1,8 @@
 package com.example.springlab.controller;
 
 import com.example.springlab.domain.dto.ErrorResponse;
+import com.example.springlab.domain.dto.FieldErrorResponse;
+import com.example.springlab.domain.dto.ValidationErrorResponse;
 import com.example.springlab.exception.InsufficientBalanceException;
 import com.example.springlab.exception.OutOfStockException;
 import com.example.springlab.exception.ResourceNotFoundException;
@@ -10,8 +12,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-
 import java.time.LocalDateTime;
+import java.util.List;
+
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -26,17 +29,19 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<ErrorResponse> handleMethodArgumentNotValidException(MethodArgumentNotValidException ex){
-        String message = ex.getBindingResult()
+    public ResponseEntity<ValidationErrorResponse> handleMethodArgumentNotValidException(MethodArgumentNotValidException ex){
+        List<FieldErrorResponse> errors= ex.getBindingResult()
                 .getFieldErrors()
                 .stream()
-                .map(error -> error.getDefaultMessage())
-                .findFirst()
-                .orElse("Validation failed");
+                .map(error->new FieldErrorResponse(
+                        error.getField(),
+                        error.getDefaultMessage()
+                )).toList();
 
-        ErrorResponse errorResponse = new ErrorResponse(
+        ValidationErrorResponse errorResponse = new ValidationErrorResponse(
                 String.valueOf(HttpStatus.BAD_REQUEST.value()),
-               message,
+               "Validation failed",
+                errors,
                 LocalDateTime.now()
         );
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);

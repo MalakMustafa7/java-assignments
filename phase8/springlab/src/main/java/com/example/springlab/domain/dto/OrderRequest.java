@@ -1,5 +1,6 @@
 package com.example.springlab.domain.dto;
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -13,6 +14,7 @@ public record OrderRequest(
         @NotNull(message = "{order.customerId.required}")
         Long customerId,
 
+        @Valid
         @NotEmpty(message = "{order.items.required}")
         List<OrderItemRequest> orderItems
 ) {
