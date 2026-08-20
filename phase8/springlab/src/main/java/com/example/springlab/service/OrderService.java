@@ -62,7 +62,10 @@ public class OrderService {
     }
 
     public PageResponse<OrderResponse>findByCustomerId(Long id, Pageable pageable){
-       Page<Order> orderPage = orderRepository.findByCustomerId(id,pageable);
+       Customer customer = customerRepository.findById(id)
+               .orElseThrow(()->new ResourceNotFoundException(
+                       String.format(ErrorMessages.CUSTOMER_NOT_FOUND,id)));
+        Page<Order> orderPage = orderRepository.findByCustomerId(id,pageable);
        return pageMapper.toPageResponse(orderPage,orderMapper::toResponse);
     }
 
