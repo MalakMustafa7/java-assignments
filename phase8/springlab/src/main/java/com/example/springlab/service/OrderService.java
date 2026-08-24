@@ -1,15 +1,15 @@
 package com.example.springlab.service;
-import com.example.springlab.domain.dto.OrderItemRequest;
-import com.example.springlab.domain.dto.OrderRequest;
-import com.example.springlab.domain.dto.OrderResponse;
-import com.example.springlab.domain.dto.PageResponse;
-import com.example.springlab.domain.entity.Customer;
-import com.example.springlab.domain.entity.Order;
-import com.example.springlab.domain.entity.OrderItem;
-import com.example.springlab.domain.entity.Product;
-import com.example.springlab.domain.enums.Status;
-import com.example.springlab.domain.mapper.OrderMapper;
-import com.example.springlab.domain.mapper.PageMapper;
+import com.example.springlab.dto.OrderItemRequest;
+import com.example.springlab.dto.OrderRequest;
+import com.example.springlab.dto.OrderResponse;
+import com.example.springlab.dto.PageResponse;
+import com.example.springlab.entity.Customer;
+import com.example.springlab.entity.Order;
+import com.example.springlab.entity.OrderItem;
+import com.example.springlab.entity.Product;
+import com.example.springlab.enums.Status;
+import com.example.springlab.mapper.OrderMapper;
+import com.example.springlab.mapper.PageMapper;
 import com.example.springlab.exception.ResourceNotFoundException;
 import com.example.springlab.repository.CustomerRepository;
 import com.example.springlab.repository.OrderRepository;
@@ -22,7 +22,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor

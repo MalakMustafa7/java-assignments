@@ -1,7 +1,7 @@
 package com.example.springlab.controller;
 
-import com.example.springlab.domain.dto.CategoryRequest;
-import com.example.springlab.domain.dto.CategoryResponse;
+import com.example.springlab.dto.CategoryRequest;
+import com.example.springlab.dto.CategoryResponse;
 import com.example.springlab.service.CategoryService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

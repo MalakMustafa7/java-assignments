@@ -1,8 +1,8 @@
 package com.example.springlab.controller;
 
-import com.example.springlab.domain.dto.OrderRequest;
-import com.example.springlab.domain.dto.OrderResponse;
-import com.example.springlab.domain.dto.PageResponse;
+import com.example.springlab.dto.OrderRequest;
+import com.example.springlab.dto.OrderResponse;
+import com.example.springlab.dto.PageResponse;
 import com.example.springlab.service.OrderService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

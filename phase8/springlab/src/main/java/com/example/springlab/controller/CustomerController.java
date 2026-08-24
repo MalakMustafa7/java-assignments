@@ -1,7 +1,7 @@
 package com.example.springlab.controller;
 
-import com.example.springlab.domain.dto.CustomerRequest;
-import com.example.springlab.domain.dto.CustomerResponse;
+import com.example.springlab.dto.CustomerRequest;
+import com.example.springlab.dto.CustomerResponse;
 import com.example.springlab.service.CustomerService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

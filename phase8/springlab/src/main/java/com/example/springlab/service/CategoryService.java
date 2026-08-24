@@ -1,9 +1,9 @@
 package com.example.springlab.service;
 
-import com.example.springlab.domain.dto.CategoryRequest;
-import com.example.springlab.domain.dto.CategoryResponse;
-import com.example.springlab.domain.entity.Category;
-import com.example.springlab.domain.mapper.CategoryMapper;
+import com.example.springlab.dto.CategoryRequest;
+import com.example.springlab.dto.CategoryResponse;
+import com.example.springlab.entity.Category;
+import com.example.springlab.mapper.CategoryMapper;
 import com.example.springlab.exception.ResourceNotFoundException;
 import com.example.springlab.repository.CategoryRepository;
 import com.example.springlab.util.ErrorMessages;

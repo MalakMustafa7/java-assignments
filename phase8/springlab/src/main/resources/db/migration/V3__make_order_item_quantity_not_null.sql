@@ -1,0 +1,2 @@
+ALTER TABLE order_items
+MODIFY COLUMN quantity INT NOT NULL;

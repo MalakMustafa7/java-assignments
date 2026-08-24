@@ -1,0 +1,38 @@
+CREATE TABLE category(
+id BIGINT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE product(
+id BIGINT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(255) NOT NULL,
+stock INT NOT NULL ,
+price DECIMAL(38,2),
+category_id BIGINT ,
+FOREIGN KEY(category_id) REFERENCES category(id)
+);
+
+CREATE TABLE customer(
+id BIGINT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(255) NOT NULL,
+balance DECIMAL(38,2)
+);
+
+CREATE TABLE orders(
+id BIGINT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(255) NOT NULL,
+status VARCHAR(50) NOT NULL,
+total_price DECIMAL(38,2),
+customer_id BIGINT,
+FOREIGN KEY(customer_id) REFERENCES customer(id)
+);
+
+CREATE TABLE order_items(
+id BIGINT AUTO_INCREMENT PRIMARY KEY,
+quantity INT  ,
+price DECIMAL(38,2),
+product_id BIGINT,
+order_id BIGINT,
+FOREIGN KEY(product_id) REFERENCES product(id),
+FOREIGN KEY(order_id) REFERENCES orders(id)
+);

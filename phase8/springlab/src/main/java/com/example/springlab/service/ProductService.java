@@ -1,12 +1,12 @@
 package com.example.springlab.service;
 
-import com.example.springlab.domain.dto.PageResponse;
-import com.example.springlab.domain.dto.ProductRequest;
-import com.example.springlab.domain.dto.ProductResponse;
-import com.example.springlab.domain.entity.Category;
-import com.example.springlab.domain.entity.Product;
-import com.example.springlab.domain.mapper.PageMapper;
-import com.example.springlab.domain.mapper.ProductMapper;
+import com.example.springlab.dto.PageResponse;
+import com.example.springlab.dto.ProductRequest;
+import com.example.springlab.dto.ProductResponse;
+import com.example.springlab.entity.Category;
+import com.example.springlab.entity.Product;
+import com.example.springlab.mapper.PageMapper;
+import com.example.springlab.mapper.ProductMapper;
 import com.example.springlab.exception.OutOfStockException;
 import com.example.springlab.exception.ResourceNotFoundException;
 import com.example.springlab.repository.CategoryRepository;

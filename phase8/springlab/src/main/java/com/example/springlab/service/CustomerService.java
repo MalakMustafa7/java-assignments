@@ -1,9 +1,9 @@
 package com.example.springlab.service;
 
-import com.example.springlab.domain.dto.CustomerRequest;
-import com.example.springlab.domain.dto.CustomerResponse;
-import com.example.springlab.domain.entity.Customer;
-import com.example.springlab.domain.mapper.CustomerMapper;
+import com.example.springlab.dto.CustomerRequest;
+import com.example.springlab.dto.CustomerResponse;
+import com.example.springlab.entity.Customer;
+import com.example.springlab.mapper.CustomerMapper;
 import com.example.springlab.exception.InsufficientBalanceException;
 import com.example.springlab.exception.ResourceNotFoundException;
 import com.example.springlab.repository.CustomerRepository;
