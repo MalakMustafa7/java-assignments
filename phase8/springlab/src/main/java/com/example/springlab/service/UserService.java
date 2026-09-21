@@ -1,6 +1,7 @@
 package com.example.springlab.service;
 
 import com.example.springlab.adapter.SecurityUser;
+import com.example.springlab.dto.LoginRequest;
 import com.example.springlab.dto.UserRequest;
 import com.example.springlab.dto.UserResponse;
 import com.example.springlab.entity.Authority;
@@ -37,46 +38,6 @@ public class UserService implements UserDetailsService {
        return new SecurityUser(user);
     }
 
-//    @Override
-//    public UserDetails loadUserByUsername(String username) {
-//
-//        System.out.println("========== AUTHENTICATION START ==========");
-//        System.out.println("Username received: " + username);
-//
-//        try {
-//            System.out.println("BEFORE QUERY");
-//
-//            User user = userRepository.findByUsernameWithAuthorities(username)
-//                    .orElseThrow(() -> {
-//                        System.out.println("USER NOT FOUND");
-//                        return new UsernameNotFoundException(
-//                                String.format(ErrorMessages.USER_NOT_FOUND, username)
-//                        );
-//                    });
-//
-//            System.out.println("AFTER QUERY");
-//            System.out.println("USER FOUND: " + user.getUsername());
-//
-//            System.out.println("BEFORE SECURITY USER");
-//
-//            SecurityUser securityUser = new SecurityUser(user);
-//
-//            System.out.println("SECURITY USER CREATED");
-//
-//            return securityUser;
-//
-//        } catch (Exception e) {
-//
-//            System.out.println("========== EXCEPTION ==========");
-//            System.out.println("Exception type: " + e.getClass().getName());
-//            System.out.println("Exception message: " + e.getMessage());
-//
-//            e.printStackTrace();
-//
-//            throw e;
-//        }
-//    }
-
 
     public UserResponse createUser(UserRequest request){
         if (userRepository.existsByEmail(request.email())){
@@ -98,4 +59,6 @@ public class UserService implements UserDetailsService {
         userRepository.save(user);
         return userMapper.toResponse(user);
     }
+
+
 }
