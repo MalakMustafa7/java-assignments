@@ -1,27 +1,25 @@
 package com.example.springlab.entity;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.math.BigDecimal;
-
-
 @Entity
+@Table(name="users")
 @NoArgsConstructor
-@Getter
 @Setter
-public class Customer {
+@Getter
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private BigDecimal balance;
-    @Column(name = "phone_number")
-    private String phoneNumber;
-
-    @OneToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    private String username;
+    private String password;
+    private String email;
+    private boolean enabled;
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    private Role role;
 
 }

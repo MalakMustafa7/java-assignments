@@ -63,6 +63,53 @@ public class GlobalExceptionHandler {
         );
         return ResponseEntity.status(HttpStatus.CONFLICT).body(errorResponse);
     }
+    @ExceptionHandler(AuthorityAlreadyExistsException.class)
+    public ResponseEntity<ErrorResponse> handleAuthorityAlreadyExistsException(AuthorityAlreadyExistsException ex){
+        ErrorResponse errorResponse = new ErrorResponse(
+                String.valueOf(HttpStatus.CONFLICT.value()),
+                ex.getMessage(),
+                LocalDateTime.now()
+        );
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(errorResponse);
+    }
+    @ExceptionHandler(AuthorityNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleAuthorityNotFoundException(AuthorityNotFoundException ex){
+        ErrorResponse errorResponse = new ErrorResponse(
+                String.valueOf(HttpStatus.NOT_FOUND.value()),
+                ex.getMessage(),
+                LocalDateTime.now()
+        );
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
+    }
+    @ExceptionHandler(RoleNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleRoleNotFoundException(RoleNotFoundException ex){
+        ErrorResponse errorResponse = new ErrorResponse(
+                String.valueOf(HttpStatus.NOT_FOUND.value()),
+                ex.getMessage(),
+                LocalDateTime.now()
+        );
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
+    }
+    @ExceptionHandler(RoleAlreadyExistsException.class)
+    public ResponseEntity<ErrorResponse> handleRoleAlreadyExistsException(RoleAlreadyExistsException ex){
+        ErrorResponse errorResponse = new ErrorResponse(
+                String.valueOf(HttpStatus.CONFLICT.value()),
+                ex.getMessage(),
+                LocalDateTime.now()
+        );
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(errorResponse);
+    }
+    @ExceptionHandler(UserAlreadyExistsException.class)
+    public ResponseEntity<ErrorResponse> handleUserAlreadyExistsException(UserAlreadyExistsException ex){
+        ErrorResponse errorResponse = new ErrorResponse(
+                String.valueOf(HttpStatus.CONFLICT.value()),
+                ex.getMessage(),
+                LocalDateTime.now()
+        );
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(errorResponse);
+    }
+
+
 
 
 }

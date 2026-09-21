@@ -1,27 +1,22 @@
 package com.example.springlab.entity;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.math.BigDecimal;
-
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
+@Table(name = "authorities")
 @NoArgsConstructor
-@Getter
 @Setter
-public class Customer {
+@Getter
+public class Authority {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private BigDecimal balance;
-    @Column(name = "phone_number")
-    private String phoneNumber;
-
-    @OneToOne
-    @JoinColumn(name = "user_id")
-    private User user;
-
+    @ManyToMany(mappedBy = "authorities")
+    private Set<Role> roles = new HashSet<>();
 }
